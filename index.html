@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wk7 | Test</title>
+  <style>
+    body{
+      background-color:#fdf7f7;
+      font-family: sans-serif;
+    }
+    main{
+      width:50%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    a {
+      text-decoration: none;
+      color: blue;
+    }
+    a:hover{
+      text-decoration:underline;
+    }
+    /* .input-fields{
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .input-name{
+      flex:1;
+    }
+    .input-pass{
+      flex:1;
+    } */
+
+  </style>
+</head>
+<body>
+  <main>
+    <form action="/add" method="GET">
+      <h2>Enter Your Favourite Books Here</h2>
+      <div class="input-fields">
+        <div class="input-name">
+          Your name: <input type="text" name="name" required> <br><br>
+        </div>
+        <div class="input-pass">
+          Your favourite book: <input type="text" name="book" required id="user-fav-books"> <br> <br>
+        </div>
+        <p>Choose your favourite books</p>
+        <ul>
+          <!-- <li>Jack n the bean stalk <a class="fav-books" title="add to your favourites" href="/add-fav/red?title=Jack+and+the+bean+stalk"> add</a></li>
+          <li>Little red ridding hood <a class="fav-books" title="add to your favourites" href="/add-fav/red?title=Little+red+ridding+hood"> add</a></li>
+          <li>3 little pigs <a class="fav-books" title="add to your favourites" href="/add-fav/pig?title=3+little+pigs"> add</a></li>
+          <li>Call of Duty 4 <a class="fav-books" title="add to your favourites" href="/add-fav/cod?title=Call+of+Duty+4">add</a></li> -->
+
+          
+        </ul>
+        <input type="submit" value="Submit"> <br><br>
+      </div>
+      <a href="/books">Click here to see book lists</a>
+    </form>
+  </main>
+  <script>
+
+    let bookTitles = document.querySelector('#user-fav-books')
+    let titles = document.querySelectorAll('.fav-books')
+
+    for(let i = 0; i<titles.length; i++){
+      titles[i].addEventListener('click', (e)=>{
+        console.log('click....')
+      })
+    }
+
+
+  </script>
+</body>
+</html>

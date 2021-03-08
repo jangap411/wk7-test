@@ -26,10 +26,7 @@ const path = require('path')
 const port = 8081
 
 //store user data
-let usersfavBooks = [
-  { user_name: 'Jack', user_book: 'book1' },
-  { user_name: 'john', user_book: 'book2' }
-]
+let usersfavBooks = []
 
 //number of books with highest count
 let highestFavCount = []

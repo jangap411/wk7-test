@@ -20,7 +20,6 @@
 */
 
 
-const { json } = require('express')
 const express = require('express')
 const app = express()
 const path = require('path')
@@ -78,8 +77,6 @@ app.get('/top', (request, response)=>{
 
 //#endregion
 
-
-console.log(usersfavBooks[0].user_book)
 
 //helper functions
 
@@ -143,15 +140,6 @@ for(let i of usersfavBooks){
 }
 
 console.log("=================")
-
-//listening port
-app.listen(port, () => {
-  console.log(`server running....\nhttp://localhost:${port}`)
-})
-
-
-
-//#endregion
 
 //listening port
 app.listen(port, () => {

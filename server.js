@@ -19,6 +19,7 @@
 
 */
 
+
 const { json } = require('express')
 const express = require('express')
 const app = express()
@@ -58,14 +59,6 @@ app.get('/add', (request, response)=>{
 //view books
 app.get('/books', (request, response)=>{
   console.log(request.url,":book list loaded")
-  // response.status(200).sendFile(path.join(__dirname, 'index.html'))
-  // let x =  usersfavBooks.forEach(function (arrayItem) {
-  //   let books = []
-  //   var x = arrayItem.user_book
-  //   books.push(x)
-  //   console.log(books)
-  //   return books
-  // })
 
   for(let i=0;i<usersfavBooks.length;i++){
     console.log(usersfavBooks[i].user_book)
@@ -79,17 +72,12 @@ app.get('/books', (request, response)=>{
 app.get('/top', (request, response)=>{
   console.log(request.url,":top books loaded")
   // response.status(200).sendFile(path.join(__dirname, 'index.html'))
-  response.status(200).send(`<h1>Top rated</h1>`)
+  console.log(checkDuplicates(usersfavBooks))
+  response.status(200).send(`${JSON.stringify(checkDuplicates(usersfavBooks))}`)
 })
 
 //#endregion
 
-
-
-// function to add books
-function addbooks(title, _resquest,_response,arr){
-  arr.push(title,_resquest,_response)
-}
 
 console.log(usersfavBooks[0].user_book)
 
@@ -102,6 +90,7 @@ function checkDuplicates(array){
   let count = 0
   let newArrNoDups = []
   let addArr = []
+
   for(let val of array) {
     if (!isExist(newArrNoDups, val)){
       count += 1
@@ -111,24 +100,56 @@ function checkDuplicates(array){
     } 
   }
   console.log(`${count} duplicates removed`)
-  return addArr
+  return newArrNoDups
 }
+
+function checkSame(array){
+  let count = 0
+  let newSameVals = []
+  let newArrNoDups = []
+
+  array.forEach((arrayItem) =>{
+    let arrObjPropVal = arrayItem.user_book
+
+    if(isExist()){
+      
+    }
+
+  })
+
+}
+
+
+usersfavBooks.forEach(function (arrayItem) {
+  let books = []
+  var x = arrayItem.user_book
+  books.push(x)
+  console.log(books)
+  return books
+})
 
 function isExist (arr, val){
   for (let i of arr){
-    if (i == val) return true
+    if (i.user_book == val) return true
   }
   return false
 }
 
-//loop through array object
-function accessArrayObjProp(arr,arrayPr){
-  let propername = arrayPropName
-  arr.forEach(function (arrayItem) {
-    var x = arrayItem.propername;
-    console.log(x);
-});
+
+//#endregion
+
+for(let i of usersfavBooks){
+  console.log(i)
 }
+
+console.log("=================")
+
+//listening port
+app.listen(port, () => {
+  console.log(`server running....\nhttp://localhost:${port}`)
+})
+
+
 
 //#endregion
 
